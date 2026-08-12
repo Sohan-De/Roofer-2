@@ -1,0 +1,230 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   css/services.css — Services page stylesheet for MR. DUVAL
+   Imports base style.css and implements a highly premium layout.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+@import "style.css";
+
+/* ── Services Page Hero Redesign ─────────────────────────────────────────── */
+.services-hero {
+  background: var(--color-black);
+  padding: calc(var(--space-3xl) + 60px) 0 var(--space-3xl);
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  border-bottom: 4px solid var(--color-red);
+}
+
+.services-hero-content {
+  position: relative;
+  z-index: 5;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.services-hero h1 {
+  color: var(--color-white);
+  margin-top: var(--space-sm);
+  margin-bottom: var(--space-md);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  text-transform: uppercase;
+}
+
+.services-hero p {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 1.15rem;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* ── Modern Split Layout (Category Index & Detail View) ─────────────────── */
+.services-detail-section {
+  padding: var(--space-3xl) 0;
+  background: var(--color-offwhite);
+}
+
+.services-split-layout {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: var(--space-2xl);
+  align-items: start;
+}
+
+/* Sticky Sidebar Navigation */
+.services-sidebar {
+  position: sticky;
+  top: 100px;
+  background: var(--color-white);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+  border-top: 3px solid var(--color-red);
+}
+
+.services-sidebar h3 {
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-gray);
+  margin-bottom: var(--space-md);
+  padding-bottom: var(--space-xs);
+  border-bottom: 1px solid var(--color-gray-light);
+}
+
+.sidebar-nav-item {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--color-black);
+  padding: 0.75rem var(--space-sm);
+  border-radius: var(--radius-sm);
+  margin-bottom: var(--space-xs);
+  transition: background var(--dur-fast), color var(--dur-fast);
+}
+
+.sidebar-nav-item:hover, .sidebar-nav-item.active {
+  background: rgba(204, 31, 37, 0.08);
+  color: var(--color-red);
+}
+
+/* Premium Card Layout */
+.service-details-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xl);
+}
+
+.service-detail-card {
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  padding: var(--space-2xl);
+  box-shadow: 0 16px 48px rgba(0,0,0,0.05);
+  position: relative;
+  overflow: hidden;
+  transition: transform var(--dur-med) var(--ease), box-shadow var(--dur-med) var(--ease);
+}
+
+.service-detail-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.09);
+}
+
+/* Red roof accent block */
+.service-detail-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  background: var(--color-red);
+}
+
+.service-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-md);
+  margin-bottom: var(--space-lg);
+}
+
+.service-detail-icon {
+  width: 64px;
+  height: 64px;
+  background: rgba(204, 31, 37, 0.06);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-red);
+}
+
+.service-card-number {
+  font-family: var(--font-display);
+  font-size: 3.5rem;
+  font-weight: 900;
+  line-height: 1;
+  color: rgba(204, 31, 37, 0.08);
+  user-select: none;
+}
+
+.service-detail-content h2 {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--color-black);
+  margin-bottom: var(--space-sm);
+  line-height: 1.1;
+}
+
+.service-badge {
+  display: inline-block;
+  background: var(--color-offwhite);
+  color: var(--color-gray);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 0.3rem 0.6rem;
+  border-radius: 4px;
+  margin-bottom: var(--space-md);
+}
+
+.service-detail-text {
+  font-size: 0.98rem;
+  color: var(--color-gray);
+  line-height: 1.7;
+  margin-bottom: var(--space-lg);
+}
+
+.service-detail-features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--space-md);
+  margin-top: var(--space-lg);
+  padding-top: var(--space-lg);
+  border-top: 1px solid var(--color-gray-light);
+}
+
+.service-feature-item {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--color-black);
+}
+
+.service-feature-item svg {
+  color: var(--color-red);
+  flex-shrink: 0;
+}
+
+.service-card-footer {
+  margin-top: var(--space-lg);
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* Responsive Overrides */
+@media (max-width: 960px) {
+  .services-split-layout {
+    grid-template-columns: 1fr;
+  }
+  .services-sidebar {
+    display: none; /* Hide sidebar list on tablets and mobile */
+  }
+}
+
+@media (max-width: 560px) {
+  .service-detail-card {
+    padding: var(--space-lg);
+  }
+  .service-card-header {
+    margin-bottom: var(--space-md);
+  }
+}

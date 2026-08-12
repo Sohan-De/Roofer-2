@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nos Réalisations Avant / Après — Mr. Duval</title>
+  <meta name="description" content="Découvrez nos projets de rénovation de toiture avant/après en Seine-et-Marne. Voyez la différence de nos travaux de démoussage, zingerie et gouttières." />
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Page-specific CSS file (imports base style.css) -->
+  <link rel="stylesheet" href="css/realisations.css" />
+</head>
+<body>
+
+<!-- HEADER -->
+<header id="site-header" role="banner">
+  <div class="container header-inner">
+    <a href="index.html" class="header-logo" aria-label="Mr. Duval Couverture — accueil">
+      <svg width="40" height="40" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+        <rect width="40" height="40" rx="6" fill="var(--color-red)"/>
+        <path d="M20 8L6 20h4v12h8v-8h4v8h8V20h4L20 8z" fill="white" opacity="0.95"/>
+      </svg>
+      <div class="logo-text">
+        <span class="logo-name">Mr. Duval</span>
+        <span class="logo-sub">Couverture &amp; Démoussage</span>
+      </div>
+    </a>
+    <nav class="header-nav" aria-label="Navigation principale">
+      <a href="index.html#hero">Accueil</a>
+      <a href="services.html">Services</a>
+      <a href="realisations.html" class="active">Réalisations</a>
+      <a href="index.html#zone">Zone</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="header-actions">
+      <a href="tel:+33628625006" class="header-phone" aria-label="Appeler Mr. Duval">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+          <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+        </svg>
+        06 28 62 50 06
+      </a>
+      <a href="contact.html" class="btn btn-primary btn-sm">
+        Devis Gratuit
+      </a>
+      <button class="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobile-nav-menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile Nav -->
+<nav class="mobile-nav" id="mobile-nav-menu" aria-label="Menu mobile">
+  <a href="index.html#hero">Accueil</a>
+  <a href="services.html">Services</a>
+  <a href="realisations.html">Réalisations</a>
+  <a href="index.html#zone">Zone d'intervention</a>
+  <a href="contact.html">Contact</a>
+  <a href="tel:+33628625006" class="mobile-phone">06 28 62 50 06</a>
+</nav>
+
+<!-- HERO -->
+<section class="realisations-hero">
+  <div class="hero-slope" aria-hidden="true"></div>
+  <div class="container realisations-hero-content">
+    <span class="section-label">Galerie</span>
+    <h1 class="display-lg">Nos chantiers réalisés</h1>
+    <p>Découvrez notre galerie de photos. Cliquez sur une image pour l'agrandir et parcourir le diaporama.</p>
+  </div>
+  <div class="hero-roof-line" aria-hidden="true"></div>
+</section>
+
+<!-- GALLERY SECTION WITH INTERACTIVE FILTERING -->
+<section class="gallery-section">
+  <div class="container">
+
+    <!-- Filter tabs -->
+    <div class="filter-bar" role="tablist" aria-label="Filtres de réalisations">
+      <button class="filter-btn active" role="tab" aria-selected="true" data-filter="all">Tous nos travaux</button>
+      <button class="filter-btn" role="tab" aria-selected="false" data-filter="nettoyage">Nettoyage &amp; Démoussage</button>
+      <button class="filter-btn" role="tab" aria-selected="false" data-filter="zinguerie">Zinguerie &amp; Solins</button>
+      <button class="filter-btn" role="tab" aria-selected="false" data-filter="gouttieres">Gouttières</button>
+    </div>
+
+    <!-- Gallery grid -->
+    <div class="gallery-grid" id="portfolio-gallery">
+
+      <!-- Item 1 -->
+      <div class="gallery-item reveal" data-category="nettoyage" data-src="assets/gallery_1.jpg" data-caption="Chantier Meaux — Traitement anti-mousse et rénovation complète de toiture en tuiles">
+        <img src="assets/gallery_1.jpg" alt="Chantier de couverture à Meaux" loading="lazy" />
+        <div class="gallery-overlay">
+          <div class="gallery-meta">
+            <span class="tag-city">Meaux</span>
+            <span class="tag-category">Démoussage</span>
+          </div>
+          <h3 class="gallery-title">Traitement anti-mousse &amp; Démoussage</h3>
+        </div>
+      </div>
+
+      <!-- Item 2 -->
+      <div class="gallery-item reveal" data-category="zinguerie" data-src="assets/gallery_2.jpg" data-caption="Chantier Coulommiers — Rénovation de toiture et étanchéité de zinguerie">
+        <img src="assets/gallery_2.jpg" alt="Chantier de zinguerie à Coulommiers" loading="lazy" />
+        <div class="gallery-overlay">
+          <div class="gallery-meta">
+            <span class="tag-city">Coulommiers</span>
+            <span class="tag-category">Zinguerie</span>
+          </div>
+          <h3 class="gallery-title">Rénovation de toiture &amp; Zinguerie</h3>
+        </div>
+      </div>
+
+      <!-- Item 3 -->
+      <div class="gallery-item reveal" data-category="nettoyage" data-src="assets/gallery_3.jpg" data-caption="Chantier Tournan — Nettoyage thermique et application de protection hydrofuge">
+        <img src="assets/gallery_3.jpg" alt="Nettoyage hydrofuge à Tournan" loading="lazy" />
+        <div class="gallery-overlay">
+          <div class="gallery-meta">
+            <span class="tag-city">Tournan</span>
+            <span class="tag-category">Hydrofuge</span>
+          </div>
+          <h3 class="gallery-title">Nettoyage &amp; Hydrofuge</h3>
+        </div>
+      </div>
+
+      <!-- Item 4 -->
+      <div class="gallery-item reveal" data-category="nettoyage" data-src="assets/gallery_4.jpg" data-caption="Chantier Crécy-la-Chapelle — Démoussage professionnel sur toiture en tuiles terre cuite">
+        <img src="assets/gallery_4.jpg" alt="Nettoyage de toiture à Crécy-la-Chapelle" loading="lazy" />
+        <div class="gallery-overlay">
+          <div class="gallery-meta">
+            <span class="tag-city">Crécy-la-Chapelle</span>
+            <span class="tag-category">Nettoyage</span>
+          </div>
+          <h3 class="gallery-title">Démoussage de toiture</h3>
+        </div>
+      </div>
+
+      <!-- Item 5 -->
+      <div class="gallery-item reveal" data-category="zinguerie" data-src="assets/gallery_5.jpg" data-caption="Chantier La Ferté-sous-Jouarre — Réfection de rives et finition de toiture">
+        <img src="assets/gallery_5.jpg" alt="Travaux de toiture à La Ferté-sous-Jouarre" loading="lazy" />
+        <div class="gallery-overlay">
+          <div class="gallery-meta">
+            <span class="tag-city">La Ferté</span>
+            <span class="tag-category">Zinguerie</span>
+          </div>
+          <h3 class="gallery-title">Réfection de rives &amp; Solins</h3>
+        </div>
+      </div>
+
+      <!-- Item 6 -->
+      <div class="gallery-item reveal" data-category="nettoyage" data-src="assets/gallery_6.jpg" data-caption="Chantier Bouleurs — Rénovation thermique et résultat final toiture tuiles">
+        <img src="assets/gallery_6.jpg" alt="Toiture rénovée à Bouleurs" loading="lazy" />
+        <div class="gallery-overlay">
+          <div class="gallery-meta">
+            <span class="tag-city">Bouleurs</span>
+            <span class="tag-category">Démoussage</span>
+          </div>
+          <h3 class="gallery-title">Toiture tuiles rénovée</h3>
+        </div>
+      </div>
+
+      <!-- Item 7 -->
+      <div class="gallery-item reveal" data-category="zinguerie" data-src="assets/gallery_7.jpg" data-caption="Chantier Lagny-sur-Marne — Réparation de couverture et pose de sous-toiture">
+        <img src="assets/gallery_7.jpg" alt="Chantier de couverture à Lagny-sur-Marne" loading="lazy" />
+        <div class="gallery-overlay">
+          <div class="gallery-meta">
+            <span class="tag-city">Lagny</span>
+            <span class="tag-category">Couverture</span>
+          </div>
+          <h3 class="gallery-title">Réparation de couverture</h3>
+        </div>
+      </div>
+
+      <!-- Item 8 -->
+      <div class="gallery-item reveal" data-category="zinguerie" data-src="assets/gallery_8.jpg" data-caption="Chantier Fontainebleau — Finition parfaite toiture neuve et zinguerie">
+        <img src="assets/gallery_8.jpg" alt="Toiture neuve à Fontainebleau" loading="lazy" />
+        <div class="gallery-overlay">
+          <div class="gallery-meta">
+            <span class="tag-city">Fontainebleau</span>
+            <span class="tag-category">Couverture</span>
+          </div>
+          <h3 class="gallery-title">Finition de couverture neuve</h3>
+        </div>
+      </div>
+
+      <!-- Item 9 -->
+      <div class="gallery-item reveal" data-category="gouttieres" data-src="assets/gallery_9.jpg" data-caption="Chantier Chessy — Installation de gouttières neuves et descentes d'eaux pluviales">
+        <img src="assets/gallery_9.jpg" alt="Pose de gouttières à Chessy" loading="lazy" />
+        <div class="gallery-overlay">
+          <div class="gallery-meta">
+            <span class="tag-city">Chessy</span>
+            <span class="tag-category">Gouttières</span>
+          </div>
+          <h3 class="gallery-title">Installation de gouttières</h3>
+        </div>
+      </div>
+
+      <!-- Item 10 -->
+      <div class="gallery-item reveal" data-category="gouttieres" data-src="assets/gallery_10.jpg" data-caption="Chantier Provins — Nettoyage complet, gouttières et étanchéité de toiture">
+        <img src="assets/gallery_10.jpg" alt="Nettoyage et gouttières à Provins" loading="lazy" />
+        <div class="gallery-overlay">
+          <div class="gallery-meta">
+            <span class="tag-city">Provins</span>
+            <span class="tag-category">Gouttières</span>
+          </div>
+          <h3 class="gallery-title">Nettoyage &amp; Gouttières</h3>
+        </div>
+      </div>
+
+    </div><!-- /gallery-grid -->
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="site-footer" role="contentinfo">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="index.html" class="footer-logo">
+          <svg width="36" height="36" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+            <rect width="40" height="40" rx="6" fill="var(--color-red)"/>
+            <path d="M20 8L6 20h4v12h8v-8h4v8h8V20h4L20 8z" fill="white" opacity="0.95"/>
+          </svg>
+          <div class="logo-text">
+            <span class="logo-name" style="font-family:var(--font-display);font-size:1.2rem;font-weight:800;color:var(--color-white);text-transform:uppercase;letter-spacing:0.04em;">Mr. Duval</span>
+            <span class="logo-sub" style="display:block;font-size:0.6rem;font-weight:500;color:var(--color-red);letter-spacing:0.14em;text-transform:uppercase;">Couverture &amp; Démoussage</span>
+          </div>
+        </a>
+        <p class="footer-tagline">Couvreur artisan en Seine-et-Marne depuis 2013. Rénovation, démoussage, hydrofuge, zingerie et gouttières.</p>
+        <p class="footer-slogan">« Un toit sain, une maison protégée ! »</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <a href="index.html#hero">Accueil</a>
+        <a href="services.html">Nos services</a>
+        <a href="realisations.html">Réalisations</a>
+        <a href="index.html#zone">Zone d'intervention</a>
+        <a href="contact.html">Contact &amp; Devis</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="tel:+33628625006">06 28 62 50 06</a>
+        <a href="tel:+33988589202">09 88 58 92 02</a>
+        <a href="mailto:mr.duval.couverture@gmail.com">mr.duval.couverture@gmail.com</a>
+        <p>48, rue de la République<br/>77580 Bouleurs</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; <span id="footer-year"></span> Mr. Duval Couverture. Tous droits réservés.</p>
+      <p class="siren">SIREN : 794 294 900 00020</p>
+    </div>
+  </div>
+</footer>
+
+<!-- Lightbox Modal Container -->
+<div id="lightbox-modal" class="lightbox-modal" role="dialog" aria-modal="true" aria-label="Visualisateur de chantier">
+  <button class="lightbox-close" aria-label="Fermer le visualisateur">&times;</button>
+  <button class="lightbox-nav lightbox-prev" aria-label="Précédent">&#10094;</button>
+  <div class="lightbox-content-wrap">
+    <img id="lightbox-img" class="lightbox-img" src="" alt="" />
+    <div id="lightbox-caption" class="lightbox-caption"></div>
+  </div>
+  <button class="lightbox-nav lightbox-next" aria-label="Suivant">&#10095;</button>
+</div>
+
+<script type="module" src="js/colors.js"></script>
+<script type="module" src="js/main.js"></script>
+<script>
+  document.getElementById("footer-year").textContent = new Date().getFullYear();
+
+  // ── Vanilla JS Filtering ──────────────────────────────────────────────────
+  const filterButtons = document.querySelectorAll('.filter-btn');
+  const items = document.querySelectorAll('.gallery-item');
+
+  filterButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterButtons.forEach(b => {
+        b.classList.remove('active');
+        b.setAttribute('aria-selected', 'false');
+      });
+      btn.classList.add('active');
+      btn.setAttribute('aria-selected', 'true');
+
+      const filter = btn.getAttribute('data-filter');
+
+      items.forEach(item => {
+        const category = item.getAttribute('data-category');
+        if (filter === 'all' || category === filter) {
+          item.classList.remove('fade-out');
+          item.classList.add('fade-in');
+        } else {
+          item.classList.remove('fade-in');
+          item.classList.add('fade-out');
+        }
+      });
+    });
+  });
+
+  // ── Vanilla JS Lightbox ───────────────────────────────────────────────────
+  const modal = document.getElementById('lightbox-modal');
+  const lightboxImg = document.getElementById('lightbox-img');
+  const lightboxCap = document.getElementById('lightbox-caption');
+  const btnClose = document.querySelector('.lightbox-close');
+  const btnPrev = document.querySelector('.lightbox-prev');
+  const btnNext = document.querySelector('.lightbox-next');
+
+  let currentSet = [];
+  let currentIndex = 0;
+
+  const openLightbox = (item) => {
+    // Collect visible items in active filter group
+    const activeFilter = document.querySelector('.filter-btn.active').getAttribute('data-filter');
+    currentSet = Array.from(document.querySelectorAll('.gallery-item')).filter(el => {
+      const cat = el.getAttribute('data-category');
+      return activeFilter === 'all' || cat === activeFilter;
+    });
+    
+    currentIndex = currentSet.indexOf(item);
+
+    updateLightboxContent();
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  };
+
+  const updateLightboxContent = () => {
+    const item = currentSet[currentIndex];
+    lightboxImg.src = item.getAttribute('data-src');
+    lightboxImg.alt = item.querySelector('img').alt;
+    lightboxCap.textContent = item.getAttribute('data-caption') || '';
+  };
+
+  const closeLightbox = () => {
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+  };
+
+  const showNext = () => {
+    currentIndex = (currentIndex + 1) % currentSet.length;
+    updateLightboxContent();
+  };
+
+  const showPrev = () => {
+    currentIndex = (currentIndex - 1 + currentSet.length) % currentSet.length;
+    updateLightboxContent();
+  };
+
+  // Bind clicks
+  document.querySelectorAll('.gallery-item').forEach(item => {
+    item.addEventListener('click', () => openLightbox(item));
+  });
+
+  btnClose.addEventListener('click', closeLightbox);
+  btnNext.addEventListener('click', showNext);
+  btnPrev.addEventListener('click', showPrev);
+
+  // Close on backdrop click
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) closeLightbox();
+  });
+
+  // Key navigation
+  document.addEventListener('keydown', (e) => {
+    if (!modal.classList.contains('active')) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowRight') showNext();
+    if (e.key === 'ArrowLeft') showPrev();
+  });
+</script>
+</body>
+</html>
