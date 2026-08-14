@@ -6,6 +6,9 @@
 
 import BRAND_COLORS from "./colors.js";
 
+// Add js-enabled class to document element since modules loaded successfully
+document.documentElement.classList.add("js");
+
 /* ─── Utilities ──────────────────────────────────────────────────────────── */
 const qs  = (sel, ctx = document) => ctx.querySelector(sel);
 const qsa = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
@@ -34,6 +37,49 @@ function initHeader() {
   };
   window.addEventListener("scroll", onScroll, { passive: true });
   onScroll();
+
+  // ── Zone Dropdown click-to-toggle ──────────────────────────────────────────
+  const dropdownWraps = qsa(".nav-dropdown-wrap");
+  dropdownWraps.forEach(wrap => {
+    const trigger = wrap.querySelector(".nav-has-dropdown");
+    if (!trigger) return;
+
+    trigger.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const isOpen = wrap.classList.contains("open");
+      // Close all dropdowns first
+      dropdownWraps.forEach(w => {
+        w.classList.remove("open");
+        const t = w.querySelector(".nav-has-dropdown");
+        if (t) t.setAttribute("aria-expanded", "false");
+      });
+      // Toggle the clicked one
+      if (!isOpen) {
+        wrap.classList.add("open");
+        trigger.setAttribute("aria-expanded", "true");
+      }
+    });
+  });
+
+  // Close dropdown when clicking outside
+  document.addEventListener("click", () => {
+    dropdownWraps.forEach(w => {
+      w.classList.remove("open");
+      const t = w.querySelector(".nav-has-dropdown");
+      if (t) t.setAttribute("aria-expanded", "false");
+    });
+  });
+
+  // Close dropdown on Escape key
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      dropdownWraps.forEach(w => {
+        w.classList.remove("open");
+        const t = w.querySelector(".nav-has-dropdown");
+        if (t) t.setAttribute("aria-expanded", "false");
+      });
+    }
+  });
 }
 
 /* ══════════════════════════════════════════════════════════════════════════

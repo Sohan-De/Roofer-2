@@ -216,7 +216,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 
 /* ── 6. Scroll Reveal ────────────────────────────────────────────────────── */
-.reveal {
+.js .reveal {
   opacity: 0;
   transform: translateY(32px);
   transition: opacity var(--dur-slow) var(--ease),
@@ -226,14 +226,14 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   opacity: 1;
   transform: none;
 }
-.reveal-left {
+.js .reveal-left {
   opacity: 0;
   transform: translateX(-32px);
   transition: opacity var(--dur-slow) var(--ease),
               transform var(--dur-slow) var(--ease);
 }
 .reveal-left.visible { opacity: 1; transform: none; }
-.reveal-right {
+.js .reveal-right {
   opacity: 0;
   transform: translateX(32px);
   transition: opacity var(--dur-slow) var(--ease),
@@ -324,6 +324,159 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   outline-offset: 2px;
 }
 
+/* ── Dropdown Nav ──────────────────────────────────────────────────────────── */
+.nav-dropdown-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.nav-has-dropdown {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  cursor: pointer;
+  /* Reset button defaults */
+  background: none;
+  border: none;
+  padding: 0;
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.75);
+  transition: color var(--dur-fast);
+}
+.nav-has-dropdown:hover {
+  color: var(--color-white);
+  background: rgba(255,255,255,0.08);
+  border-radius: var(--radius-sm);
+}
+
+.nav-chevron {
+  width: 10px;
+  height: 10px;
+  transition: transform var(--dur-fast) var(--ease);
+  flex-shrink: 0;
+  opacity: 0.6;
+}
+
+.nav-dropdown-wrap:hover .nav-chevron,
+.nav-dropdown-wrap:focus-within .nav-chevron {
+  transform: rotate(180deg);
+  opacity: 1;
+}
+
+.nav-dropdown {
+  position: absolute;
+  top: calc(100% + 12px);
+  left: 50%;
+  transform: translateX(-50%) translateY(-6px);
+  background: var(--color-charcoal);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-top: 3px solid var(--color-red);
+  border-radius: var(--radius-md);
+  box-shadow: 0 16px 48px rgba(0,0,0,0.5);
+  min-width: 220px;
+  padding: 0.5rem 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--dur-fast) var(--ease),
+              transform var(--dur-fast) var(--ease);
+  z-index: 1000;
+}
+
+/* Small arrow pointer */
+.nav-dropdown::before {
+  content: '';
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0; height: 0;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-bottom: 7px solid var(--color-red);
+}
+
+.nav-dropdown-wrap:hover .nav-dropdown,
+.nav-dropdown-wrap:focus-within .nav-dropdown,
+.nav-dropdown-wrap.open .nav-dropdown {
+  opacity: 1;
+  pointer-events: all;
+  transform: translateX(-50%) translateY(0);
+}
+
+.nav-dropdown-wrap.open .nav-chevron {
+  transform: rotate(180deg);
+  opacity: 1;
+}
+
+.nav-dropdown a {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 1rem;
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.65);
+  background: transparent;
+  border-radius: 0;
+  transition: color var(--dur-fast), background var(--dur-fast), padding-left var(--dur-fast);
+  white-space: nowrap;
+}
+
+.nav-dropdown a::before {
+  content: '';
+  display: block;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--color-red);
+  opacity: 0;
+  flex-shrink: 0;
+  transition: opacity var(--dur-fast);
+}
+
+.nav-dropdown a:hover {
+  color: var(--color-white);
+  background: rgba(204,31,37,0.12);
+  padding-left: 1.2rem;
+}
+
+.nav-dropdown a:hover::before {
+  opacity: 1;
+}
+
+.nav-dropdown-divider {
+  height: 1px;
+  background: rgba(255,255,255,0.06);
+  margin: 0.4rem 0.8rem;
+}
+
+.nav-dropdown-footer {
+  padding: 0.5rem 1rem;
+  margin-top: 0.2rem;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+
+.nav-dropdown-footer a {
+  color: var(--color-red) !important;
+  font-size: 0.72rem !important;
+  justify-content: center;
+  text-align: center;
+}
+
+.nav-dropdown-footer a:hover {
+  background: rgba(204,31,37,0.15) !important;
+  color: var(--color-red) !important;
+  padding-left: 1rem !important;
+}
+
 /* Header actions */
 .header-actions {
   display: flex;
@@ -412,6 +565,29 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   font-size: 1.1rem;
 }
 .mobile-nav .btn-primary { margin: var(--space-md) var(--space-lg); }
+
+/* Mobile sub-nav (cities under Zone) */
+.mobile-nav-sub {
+  background: rgba(0,0,0,0.2);
+  border-left: 3px solid var(--color-red);
+  margin: 0;
+}
+.mobile-nav-sub-item {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 0.82rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.55) !important;
+  padding: 0.6rem var(--space-lg) 0.6rem calc(var(--space-lg) + 0.6rem) !important;
+  border-bottom: 1px solid rgba(255,255,255,0.04) !important;
+  transition: background var(--dur-fast), color var(--dur-fast);
+}
+.mobile-nav-sub-item:hover {
+  background: rgba(204,31,37,0.12) !important;
+  color: var(--color-red) !important;
+}
 
 @media (max-width: 960px) {
   .header-nav { display: none; }
