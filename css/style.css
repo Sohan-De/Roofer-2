@@ -540,7 +540,12 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   z-index: 850;
   padding: var(--space-md) 0;
 }
-.mobile-nav.open { transform: none; }
+.mobile-nav.open {
+  transform: none;
+  max-height: calc(100dvh - var(--header-h));
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
 .mobile-nav a {
   display: block;
   font-family: var(--font-display);
@@ -593,9 +598,20 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   .header-nav { display: none; }
   .nav-toggle { display: flex; }
   .header-phone { display: none; }
+
+  /* Reduce section padding on mobile/tablet */
+  #services,
+  #avant-apres,
+  #pourquoi,
+  #zone,
+  #faq,
+  #contact {
+    padding-block: var(--space-xl) !important;
+  }
 }
 @media (max-width: 480px) {
   .header-actions .btn-sm { display: none; }
+  .hero-scroll { display: none !important; }
 }
 
 /* ══════════════════════════════════════════════════════════════════════════

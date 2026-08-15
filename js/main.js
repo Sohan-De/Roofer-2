@@ -107,8 +107,15 @@ function initMobileNav() {
     mobileNav.classList.contains("open") ? close() : open()
   );
 
-  // Close on nav link click
-  qsa(".mobile-nav a").forEach(a => a.addEventListener("click", close));
+  // Close on nav link click; for hash-anchors on mobile/tablet keep menu open
+  qsa(".mobile-nav a").forEach(a => a.addEventListener("click", (e) => {
+    const href = a.getAttribute("href") || "";
+    if (href.startsWith("#") && window.innerWidth <= 960) {
+      e.preventDefault(); // no scroll, no redirect, no close
+      return;
+    }
+    close();
+  }));
 
   // Close on escape
   document.addEventListener("keydown", e => {
@@ -127,6 +134,8 @@ function initSmoothScroll() {
   document.addEventListener("click", e => {
     const anchor = e.target.closest("a[href^='#']");
     if (!anchor) return;
+    // Mobile nav links: skip smooth scroll, let browser handle naturally
+    if (anchor.closest(".mobile-nav")) return;
     const target = qs(anchor.getAttribute("href"));
     if (!target) return;
     e.preventDefault();
