@@ -10,15 +10,15 @@ import BRAND_COLORS from "./colors.js";
 document.documentElement.classList.add("js");
 
 /* ─── Utilities ──────────────────────────────────────────────────────────── */
-const qs  = (sel, ctx = document) => ctx.querySelector(sel);
+const qs = (sel, ctx = document) => ctx.querySelector(sel);
 const qsa = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
 
 /* ══════════════════════════════════════════════════════════════════════════
    1. STICKY HEADER + SHRINK ON SCROLL
    ══════════════════════════════════════════════════════════════════════════ */
 function initHeader() {
-  const header    = qs("#site-header");
-  const navLinks  = qsa(".header-nav a");
+  const header = qs("#site-header");
+  const navLinks = qsa(".header-nav a");
 
   // Shrink on scroll
   const onScroll = () => {
@@ -86,11 +86,11 @@ function initHeader() {
    2. MOBILE NAV TOGGLE
    ══════════════════════════════════════════════════════════════════════════ */
 function initMobileNav() {
-  const toggle    = qs(".nav-toggle");
+  const toggle = qs(".nav-toggle");
   const mobileNav = qs(".mobile-nav");
   if (!toggle || !mobileNav) return;
 
-  const open  = () => {
+  const open = () => {
     toggle.classList.add("open");
     mobileNav.classList.add("open");
     toggle.setAttribute("aria-expanded", "true");
@@ -141,7 +141,7 @@ function initSmoothScroll() {
 function initBASliders() {
   qsa(".ba-slider-wrap").forEach(wrap => {
     const beforeContainer = qs(".ba-before-container", wrap);
-    const divider         = qs(".ba-divider", wrap);
+    const divider = qs(".ba-divider", wrap);
     let dragging = false;
 
     // Set the full slider width as a CSS variable for the before image
@@ -161,7 +161,7 @@ function initBASliders() {
 
     // Mouse
     wrap.addEventListener("mousedown", e => { dragging = true; setPos(e.clientX); });
-    window.addEventListener("mouseup",  () => { dragging = false; });
+    window.addEventListener("mouseup", () => { dragging = false; });
     window.addEventListener("mousemove", e => { if (dragging) setPos(e.clientX); });
 
     // Touch
@@ -177,8 +177,8 @@ function initBASliders() {
     wrap.setAttribute("aria-label", "Comparaison avant/après — utilisez ← → pour ajuster");
     wrap.addEventListener("keydown", e => {
       const rect = wrap.getBoundingClientRect();
-      const cur  = parseFloat(beforeContainer.style.width) || 50;
-      if (e.key === "ArrowLeft")  { setPos(rect.left + (cur - 5) / 100 * rect.width); e.preventDefault(); }
+      const cur = parseFloat(beforeContainer.style.width) || 50;
+      if (e.key === "ArrowLeft") { setPos(rect.left + (cur - 5) / 100 * rect.width); e.preventDefault(); }
       if (e.key === "ArrowRight") { setPos(rect.left + (cur + 5) / 100 * rect.width); e.preventDefault(); }
     });
   });
@@ -192,8 +192,8 @@ function initFAQ() {
 
   items.forEach(item => {
     const trigger = qs(".faq-trigger", item);
-    const body    = qs(".faq-body", item);
-    const inner   = qs(".faq-body-inner", item);
+    const body = qs(".faq-body", item);
+    const inner = qs(".faq-body-inner", item);
 
     trigger.addEventListener("click", () => {
       const isOpen = item.classList.contains("open");
@@ -241,18 +241,24 @@ function initScrollReveal() {
 }
 
 /* ══════════════════════════════════════════════════════════════════════════
-   7. CONTACT FORM VALIDATION
+   7. CONTACT FORM VALIDATION + EMAILJS
    ══════════════════════════════════════════════════════════════════════════ */
+
+// ── EmailJS init (runs once when module loads) ─────────────────────────────
+if (typeof emailjs !== "undefined") {
+  emailjs.init("DZOrjYjrM1Q1Wbd2n");
+}
+
 function initForm() {
   const form = qs("#contact-form");
   if (!form) return;
 
   const rules = {
-    nom:       { required: true, label: "Votre nom" },
+    nom: { required: true, label: "Votre nom" },
     telephone: { required: true, pattern: /^[\d\s\+\-\(\)\.]{8,20}$/, label: "Téléphone" },
-    email:     { required: true, pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/, label: "E-mail" },
-    ville:     { required: false },
-    message:   { required: true, minLength: 10, label: "Message" },
+    email: { required: true, pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/, label: "E-mail" },
+    ville: { required: false },
+    message: { required: true, minLength: 10, label: "Message" },
   };
 
   const showError = (field, msg) => {
@@ -294,13 +300,15 @@ function initForm() {
     return true;
   };
 
-  form.addEventListener("submit", e => {
+  form.addEventListener("submit", async (e) => {
     e.preventDefault();
     const fields = qsa("[data-rule]", form);
     const allValid = fields.map(f => validate(f)).every(Boolean);
 
     const msgEl = qs(".form-message", form);
+    const btn = qs("[type='submit']", form);
     msgEl.className = "form-message";
+    msgEl.textContent = "";
 
     if (!allValid) {
       msgEl.textContent = "Veuillez corriger les erreurs ci-dessus.";
@@ -308,24 +316,45 @@ function initForm() {
       return;
     }
 
-    /* ── TODO: Replace with real backend / form service (e.g. Formspree) ── */
-    const nom  = qs("[name='nom']", form).value.trim();
-    const tel  = qs("[name='telephone']", form).value.trim();
-    const mail = qs("[name='email']", form).value.trim();
-    const msg  = qs("[name='message']", form).value.trim();
+    // ── Loading state ─────────────────────────────────────────────────────
+    const originalBtnHTML = btn.innerHTML;
+    btn.disabled = true;
+    btn.innerHTML = "Envoi en cours\u2026";
 
-    // Mailto fallback (opens mail client)
-    const subject = encodeURIComponent("Demande de devis — Mr. Duval Couverture");
-    const body    = encodeURIComponent(
-      `Nom: ${nom}\nTéléphone: ${tel}\nEmail: ${mail}\n\nMessage:\n${msg}`
-    );
-    window.location.href =
-      `mailto:mr.duval.couverture@gmail.com?subject=${subject}&body=${body}`;
+    // ── Collect form data ─────────────────────────────────────────────────
+    const getValue = (name) => {
+      const el = qs(`[name='${name}']`, form);
+      return el ? el.value.trim() : "";
+    };
 
-    msgEl.textContent =
-      "Merci ! Votre demande a bien été envoyée. Nous vous recontacterons rapidement.";
-    msgEl.classList.add("success");
-    form.reset();
+    // ── Destinataire du devis (Change admin email here) ───────────────────
+    const adminEmail = "sohandevkn@gmail.com";
+
+
+    const templateParams = {
+      nom: getValue("nom"),
+      telephone: getValue("telephone"),
+      email: getValue("email"),
+      ville: getValue("ville"),
+      message: getValue("message"),
+      source_page: window.location.href,
+      to_email: adminEmail, // Passed to EmailJS template variable {{to_email}}
+    };
+
+    // ── Send via EmailJS ──────────────────────────────────────────────────
+    try {
+      await emailjs.send("service_zbtfbfg", "template_u2ams2m", templateParams);
+      msgEl.textContent = "Merci\u00a0! Votre demande a bien \u00e9t\u00e9 envoy\u00e9e. Nous vous recontacterons sous 48h.";
+      msgEl.classList.add("success");
+      form.reset();
+    } catch (err) {
+      console.error("EmailJS error:", err);
+      msgEl.textContent = "Une erreur est survenue. Veuillez r\u00e9essayer ou appeler le 06\u00a028\u00a062\u00a050\u00a006.";
+      msgEl.classList.add("error");
+    } finally {
+      btn.disabled = false;
+      btn.innerHTML = originalBtnHTML;
+    }
   });
 }
 
@@ -393,16 +422,16 @@ function initMap() {
 
   // City markers (subset with notable cities)
   const cities = [
-    { name: "Meaux",                lat: 48.9602, lon: 2.8886 },
-    { name: "Coulommiers",          lat: 48.8147, lon: 3.0863 },
-    { name: "La Ferté-sous-Jouarre",lat: 48.9531, lon: 3.1289 },
-    { name: "Tournan-en-Brie",      lat: 48.7392, lon: 2.7703 },
-    { name: "Crécy-la-Chapelle",    lat: 48.8567, lon: 2.9136 },
-    { name: "Château-Thierry",      lat: 49.0467, lon: 3.4042 },
+    { name: "Meaux", lat: 48.9602, lon: 2.8886 },
+    { name: "Coulommiers", lat: 48.8147, lon: 3.0863 },
+    { name: "La Ferté-sous-Jouarre", lat: 48.9531, lon: 3.1289 },
+    { name: "Tournan-en-Brie", lat: 48.7392, lon: 2.7703 },
+    { name: "Crécy-la-Chapelle", lat: 48.8567, lon: 2.9136 },
+    { name: "Château-Thierry", lat: 49.0467, lon: 3.4042 },
     { name: "Nanteuil-le-Haudouin", lat: 49.1394, lon: 2.8078 },
-    { name: "Lizy-sur-Ourcq",       lat: 49.0103, lon: 3.0231 },
-    { name: "Rebais",               lat: 48.8467, lon: 3.2289 },
-    { name: "Montmirail",           lat: 48.8775, lon: 3.5394 },
+    { name: "Lizy-sur-Ourcq", lat: 49.0103, lon: 3.0231 },
+    { name: "Rebais", lat: 48.8467, lon: 3.2289 },
+    { name: "Montmirail", lat: 48.8775, lon: 3.5394 },
   ];
 
   const smallIcon = L.divIcon({
