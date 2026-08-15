@@ -675,16 +675,6 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   opacity: 0.6;
 }
 
-/* Large roof line decoration */
-.hero-roof-line {
-  position: absolute;
-  bottom: 0; left: 0; right: 0;
-  height: 80px;
-  background: var(--color-offwhite);
-  clip-path: polygon(0 100%, 100% 0, 100% 100%);
-  z-index: 3;
-}
-
 .hero-content {
   position: relative;
   z-index: 5;
@@ -855,17 +845,6 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   overflow: hidden;
 }
 
-/* Angled top divider */
-#services::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 60px;
-  background: var(--color-offwhite);
-  clip-path: polygon(0 0, 100% 100%, 100% 0);
-  pointer-events: none;
-}
-
 .section-header {
   text-align: center;
   margin-bottom: var(--space-2xl);
@@ -963,17 +942,6 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   padding: var(--space-3xl) 0;
   position: relative;
   overflow: hidden;
-}
-
-/* Angled top divider (dark on offwhite) */
-#avant-apres::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 70px;
-  background: var(--color-offwhite);
-  clip-path: polygon(0 0, 100% 100%, 0 100%);
-  pointer-events: none;
 }
 
 #avant-apres .section-header { color: var(--color-white); }
@@ -1110,16 +1078,6 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   overflow: hidden;
 }
 
-#pourquoi::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 70px;
-  background: var(--color-black);
-  clip-path: polygon(0 0, 100% 0, 100% 100%);
-  pointer-events: none;
-}
-
 .trust-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -1194,16 +1152,6 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   position: relative;
   overflow: hidden;
 }
-#zone::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 60px;
-  background: var(--color-white);
-  clip-path: polygon(0 0, 100% 100%, 100% 0);
-  pointer-events: none;
-}
-
 .zone-layout {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1278,16 +1226,6 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   padding: var(--space-3xl) 0;
   position: relative;
   overflow: hidden;
-}
-
-#faq::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 70px;
-  background: var(--color-offwhite);
-  clip-path: polygon(0 0, 100% 100%, 0 100%);
-  pointer-events: none;
 }
 
 #faq .section-header .display-lg { color: var(--color-white); }
@@ -1367,16 +1305,6 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   position: relative;
   overflow: hidden;
 }
-#contact::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 70px;
-  background: var(--color-black);
-  clip-path: polygon(0 0, 100% 0, 100% 100%);
-  pointer-events: none;
-}
-
 .contact-layout {
   display: grid;
   grid-template-columns: 3fr 2fr;
