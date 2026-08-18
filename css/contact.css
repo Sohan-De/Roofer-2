@@ -8,7 +8,7 @@
 /* ── Contact Hero Redesign ──────────────────────────────────────────────── */
 .contact-hero {
   background:
-    linear-gradient(rgba(20,20,20,0.85), rgba(20,20,20,0.72)),
+    linear-gradient(rgba(20,20,20,0.4), rgba(20,20,20,0.4)),
     url("../assets/hero.jpg") center/cover no-repeat;
   padding: calc(var(--space-3xl) + 60px) 0 var(--space-3xl);
   position: relative;
