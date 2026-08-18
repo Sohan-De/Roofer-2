@@ -107,10 +107,16 @@ function initMobileNav() {
     mobileNav.classList.contains("open") ? close() : open()
   );
 
-  // Close menu when logo is clicked (navigation still proceeds)
+  // When menu is open, clicking the logo only closes the menu (no navigation);
+  // when closed, the logo navigates normally.
   const logo = qs(".header-logo");
   if (logo) {
-    logo.addEventListener("click", () => close());
+    logo.addEventListener("click", (e) => {
+      if (mobileNav.classList.contains("open")) {
+        e.preventDefault();
+        close();
+      }
+    });
   }
 
   // Close on nav link click; for hash-anchors on mobile/tablet keep menu open
