@@ -1633,7 +1633,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   display: none;
   position: fixed;
   bottom: 0; left: 0; right: 0;
-  z-index: 900;
+  z-index: 800;
   background: var(--color-black);
   border-top: 2px solid var(--color-red);
   padding: var(--space-sm) var(--space-md);
