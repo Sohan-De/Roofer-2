@@ -50,8 +50,11 @@
 </header>
 <nav class="mobile-nav" id="mobile-nav-menu" aria-label="Menu mobile">
   <a href="../index.html#hero">Accueil</a><a href="../services.html">Services</a><a href="../realisations.html">Réalisations</a>
-  <a href="../index.html#zone">Zone d'intervention</a>
-  <div class="mobile-nav-sub">
+  <button type="button" class="mobile-zone-toggle" aria-expanded="false" aria-controls="mobile-zone-menu">
+    Zone d'intervention
+    <svg class="mobile-zone-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+  </button>
+  <div class="mobile-nav-sub" id="mobile-zone-menu">
     <a href="meaux.html" class="mobile-nav-sub-item">↳ Meaux</a>
     <a href="coulommiers.html" class="mobile-nav-sub-item">↳ Coulommiers</a>
     <a href="tournan-en-brie.html" class="mobile-nav-sub-item">↳ Tournan-en-Brie</a>
@@ -62,8 +65,6 @@
     <a href="bouleurs.html" class="mobile-nav-sub-item">↳ Bouleurs</a>
   </div>
   <a href="../contact.html">Contact</a>
-  <a href="tel:+33628625006" class="mobile-phone">06 28 62 50 06</a>
-  <a href="../contact.html" class="btn btn-primary">Demander un devis gratuit</a>
 </nav>
 
 <!-- HERO -->

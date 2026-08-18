@@ -107,6 +107,12 @@ function initMobileNav() {
     mobileNav.classList.contains("open") ? close() : open()
   );
 
+  // Close menu when logo is clicked (navigation still proceeds)
+  const logo = qs(".header-logo");
+  if (logo) {
+    logo.addEventListener("click", () => close());
+  }
+
   // Close on nav link click; for hash-anchors on mobile/tablet keep menu open
   qsa(".mobile-nav a").forEach(a => a.addEventListener("click", (e) => {
     const href = a.getAttribute("href") || "";
@@ -116,6 +122,17 @@ function initMobileNav() {
     }
     close();
   }));
+
+  // Zone sub-menu toggle (collapsible city list)
+  const zoneToggle = qs(".mobile-zone-toggle");
+  const zoneSub = qs(".mobile-nav-sub");
+  if (zoneToggle && zoneSub) {
+    zoneToggle.addEventListener("click", () => {
+      const isOpen = zoneSub.classList.toggle("open");
+      zoneToggle.classList.toggle("open", isOpen);
+      zoneToggle.setAttribute("aria-expanded", String(isOpen));
+    });
+  }
 
   // Close on escape
   document.addEventListener("keydown", e => {

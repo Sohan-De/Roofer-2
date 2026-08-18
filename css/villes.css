@@ -18,7 +18,9 @@
    ══════════════════════════════════════════════════════════════════════════ */
 .sector-hero {
   position: relative;
-  background: var(--color-black);
+  background:
+    linear-gradient(rgba(20,20,20,0.85), rgba(20,20,20,0.72)),
+    url("../assets/hero.jpg") center/cover no-repeat;
   padding: calc(var(--space-3xl) + 70px) 0 var(--section-pad);
   overflow: hidden;
 }
@@ -191,8 +193,8 @@
    TRUST BAR
    ══════════════════════════════════════════════════════════════════════════ */
 .sector-trust-bar {
-  background: var(--color-charcoal);
-  border-bottom: 1px solid rgba(255,255,255,.05);
+  background: var(--color-white);
+  border-bottom: 1px solid rgba(0,0,0,.06);
   padding: var(--space-lg) 0;
 }
 .sector-trust-inner {
@@ -221,14 +223,14 @@
   font-family: var(--font-display);
   font-size: 0.9rem;
   font-weight: 700;
-  color: var(--color-white);
+  color: var(--color-black);
   text-transform: uppercase;
   letter-spacing: 0.05em;
   line-height: 1.2;
 }
 .sector-trust-text span {
   font-size: 0.7rem;
-  color: rgba(255,255,255,.38);
+  color: var(--color-gray);
 }
 
 
@@ -792,6 +794,7 @@
   .sector-faq-layout   { grid-template-columns: 1fr; gap: var(--space-xl); }
 }
 @media (max-width: 768px) {
+  .sector-hero          { padding-top: calc(var(--space-xl) + var(--header-h)); }
   .sector-services-grid  { grid-template-columns: 1fr 1fr; }
   .sector-guarantees-grid { grid-template-columns: 1fr; gap: var(--space-md); }
   .sector-gallery-grid   { grid-template-columns: 1fr 1fr; }

@@ -7,7 +7,9 @@
 
 /* ── Portfolio Hero ─────────────────────────────────────────────────────── */
 .realisations-hero {
-  background: var(--color-black);
+  background:
+    linear-gradient(rgba(20,20,20,0.85), rgba(20,20,20,0.72)),
+    url("../assets/gallery_6.jpg") center/cover no-repeat;
   padding: calc(var(--space-3xl) + 60px) 0 var(--space-3xl);
   position: relative;
   overflow: hidden;

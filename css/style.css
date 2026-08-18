@@ -559,23 +559,54 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   transition: background var(--dur-fast), color var(--dur-fast);
 }
 .mobile-nav a:hover { background: rgba(204,31,37,0.15); color: var(--color-red); }
-.mobile-nav .mobile-phone {
+.mobile-nav .btn-primary { margin: var(--space-md) var(--space-lg); }
+
+/* Mobile zone dropdown toggle */
+.mobile-zone-toggle {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: var(--space-md) var(--space-lg);
-  color: var(--color-red);
+  justify-content: space-between;
+  gap: var(--space-sm);
+  width: 100%;
+  padding: 0.9rem var(--space-lg);
   font-family: var(--font-display);
-  font-weight: 700;
   font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-white);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  transition: background var(--dur-fast), color var(--dur-fast);
 }
-.mobile-nav .btn-primary { margin: var(--space-md) var(--space-lg); }
+.mobile-zone-toggle:hover {
+  background: rgba(204,31,37,0.15);
+  color: var(--color-red);
+}
+.mobile-zone-chevron {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+  opacity: 0.7;
+  transition: transform var(--dur-fast) var(--ease), opacity var(--dur-fast);
+}
+.mobile-zone-toggle.open .mobile-zone-chevron {
+  transform: rotate(180deg);
+  opacity: 1;
+}
 
 /* Mobile sub-nav (cities under Zone) */
 .mobile-nav-sub {
   background: rgba(0,0,0,0.2);
   border-left: 3px solid var(--color-red);
   margin: 0;
+}
+.js .mobile-nav-sub {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height var(--dur-med) var(--ease);
+}
+.js .mobile-nav-sub.open {
+  max-height: 520px;
 }
 .mobile-nav-sub-item {
   display: block;
@@ -1602,7 +1633,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   display: none;
   position: fixed;
   bottom: 0; left: 0; right: 0;
-  z-index: 800;
+  z-index: 900;
   background: var(--color-black);
   border-top: 2px solid var(--color-red);
   padding: var(--space-sm) var(--space-md);
