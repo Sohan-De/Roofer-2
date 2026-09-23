@@ -1,5 +1,5 @@
-/**
- * js/main.js — MR. DUVAL Couverture
+﻿/**
+ * js/main.js — RDG Peinture - Di Giacomo Romuald
  * All interactions: nav, slider, FAQ, form, scroll-reveal, smooth scroll.
  * Relies on CSS variables injected by colors.js (loaded before this script).
  */
@@ -397,7 +397,7 @@ function initMap() {
   const mapEl = qs("#leaflet-map");
   if (!mapEl || typeof L === "undefined") return;
 
-  const center = [48.8258, 2.8833]; // Bouleurs, 77580
+  const center = [45.0673, 4.8327]; // Tournon-sur-Rhône, 07300
 
   const map = L.map("leaflet-map", {
     center,
@@ -430,20 +430,20 @@ function initMap() {
   });
 
   // Main office marker
-  L.marker([48.8258, 2.8833], { icon: redIcon })
+  L.marker([45.0673, 4.8327], { icon: redIcon })
     .addTo(map)
     .bindPopup(
       `<strong style="font-family:sans-serif;font-size:13px;color:${BRAND_COLORS.black}">
-        MR. DUVAL Couverture
+        RDG Peinture — Di Giacomo Romuald
       </strong><br/>
       <span style="font-size:12px;color:${BRAND_COLORS.gray}">
-        48 rue de la République, 77580 Bouleurs
+        374 Rue du Dr Alphonse Bonnard, 07300 Tournon-sur-Rhône
       </span>`,
-      { maxWidth: 220 }
+      { maxWidth: 260 }
     );
 
   // Service area radius (approximate ~40 km)
-  L.circle([48.8258, 2.8833], {
+  L.circle([45.0673, 4.8327], {
     radius: 42000,
     color: BRAND_COLORS.red,
     fillColor: BRAND_COLORS.red,
@@ -454,16 +454,16 @@ function initMap() {
 
   // City markers (subset with notable cities)
   const cities = [
-    { name: "Meaux", lat: 48.9602, lon: 2.8886 },
-    { name: "Coulommiers", lat: 48.8147, lon: 3.0863 },
-    { name: "La Ferté-sous-Jouarre", lat: 48.9531, lon: 3.1289 },
-    { name: "Tournan-en-Brie", lat: 48.7392, lon: 2.7703 },
-    { name: "Crécy-la-Chapelle", lat: 48.8567, lon: 2.9136 },
-    { name: "Château-Thierry", lat: 49.0467, lon: 3.4042 },
-    { name: "Nanteuil-le-Haudouin", lat: 49.1394, lon: 2.8078 },
-    { name: "Lizy-sur-Ourcq", lat: 49.0103, lon: 3.0231 },
-    { name: "Rebais", lat: 48.8467, lon: 3.2289 },
-    { name: "Montmirail", lat: 48.8775, lon: 3.5394 },
+    { name: "Tain-l'Hermitage", lat: 45.0717, lon: 4.8419 },
+    { name: "Valence", lat: 44.9334, lon: 4.8924 },
+    { name: "Saint-Vallier", lat: 45.1794, lon: 4.8203 },
+    { name: "Romans-sur-Isère", lat: 45.0468, lon: 5.0542 },
+    { name: "Mauves", lat: 45.0261, lon: 4.8150 },
+    { name: "Sarras", lat: 45.1892, lon: 4.8069 },
+    { name: "Guilherand-Granges", lat: 44.9303, lon: 4.8681 },
+    { name: "Saint-Péray", lat: 44.9503, lon: 4.8436 },
+    { name: "Cornas", lat: 44.9786, lon: 4.8353 },
+    { name: "Romans-sur-Isère", lat: 45.0468, lon: 5.0542 },
   ];
 
   const smallIcon = L.divIcon({
@@ -519,4 +519,5 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 200);
   }
 });
+
 
