@@ -7,8 +7,6 @@
 
 /* ── Local token additions ──────────────────────────────────────────────── */
 :root {
-  --color-red-light: #e5323a;
-  --color-red-dark:  #a81820;
   --section-pad: clamp(3.5rem, 6vw, 5.5rem);
 }
 
@@ -19,7 +17,7 @@
 .sector-hero {
   position: relative;
   background:
-    linear-gradient(rgba(20,20,20,0.4), rgba(20,20,20,0.4)),
+    linear-gradient(rgba(11,31,58,0.55), rgba(11,31,58,0.55)),
     url("../assets/hero.jpg") center/cover no-repeat;
   padding: calc(var(--space-3xl) + 70px) 0 var(--section-pad);
   overflow: hidden;
@@ -118,7 +116,7 @@
   color: var(--color-white);
   line-height: 1;
 }
-.sector-stat-num em { font-style: normal; color: var(--color-red); font-size: 1.1rem; }
+.sector-stat-num em { font-style: normal; color: var(--color-blue); font-size: 1.1rem; }
 .sector-stat-label {
   font-size: 0.65rem;
   font-weight: 600;
@@ -129,8 +127,8 @@
 
 /* ── Hero Form Card ─────────────────────────────────────────────────────── */
 .sector-hero-form {
-  background: rgba(28,28,28,.97);
-  border: 1px solid rgba(255,255,255,.07);
+  background: var(--color-navy-light);
+  border: 1px solid rgba(255,255,255,.09);
   border-top: 3px solid var(--color-red);
   border-radius: var(--radius-lg);
   padding: var(--space-xl);
@@ -404,7 +402,7 @@
   aspect-ratio: 4/3;
   border-radius: var(--radius-md);
   overflow: hidden;
-  background: var(--color-black);
+  background: var(--color-navy);
   cursor: pointer;
 }
 .sector-gallery-item img {
