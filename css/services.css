@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════════════════════════════════
-   css/services.css — Services page stylesheet for RDG Peinture
+   css/services.css — Services page stylesheet for Di Giacomo Romuald
    Imports base style.css and implements a highly premium layout.
    ═══════════════════════════════════════════════════════════════════════════ */
 
@@ -9,7 +9,7 @@
 .services-hero {
   background:
     linear-gradient(rgba(11,31,58,0.55), rgba(11,31,58,0.55)),
-    url("../assets/hero.jpg") center/cover no-repeat;
+    url("../assets/hero4.jpg") center/cover no-repeat;
   padding: calc(var(--space-3xl) + 60px) 0 var(--space-3xl);
   position: relative;
   overflow: hidden;

@@ -1,9 +1,11 @@
 /* ═══════════════════════════════════════════════════════════════════════════
-   css/index.css — Homepage specific overrides for RDG Peinture
+   css/index.css — Homepage specific overrides for Di Giacomo Romuald
    Imports style.css as the base.
    ═══════════════════════════════════════════════════════════════════════════ */
 
 @import "style.css";
 
-/* No custom homepage overrides required as style.css is fully complete,
-   but we structure this to load index-specific assets or layout parameters if needed. */
+/* Hide the before/after gallery section */
+#avant-apres {
+  display: none;
+}

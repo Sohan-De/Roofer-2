@@ -1,5 +1,5 @@
-﻿/**
- * js/main.js — RDG Peinture - Di Giacomo Romuald
+/**
+ * js/main.js — Di Giacomo Romuald
  * All interactions: nav, slider, FAQ, form, scroll-reveal, smooth scroll.
  * Relies on CSS variables injected by colors.js (loaded before this script).
  */
@@ -200,8 +200,11 @@ function initBASliders() {
     wrap.addEventListener("touchstart", e => { dragging = true; setPos(e.touches[0].clientX); }, { passive: true });
     window.addEventListener("touchend", () => { dragging = false; });
     window.addEventListener("touchmove", e => {
-      if (dragging) setPos(e.touches[0].clientX);
-    }, { passive: true });
+      if (dragging) {
+        e.preventDefault();
+        setPos(e.touches[0].clientX);
+      }
+    }, { passive: false });
 
     // Keyboard (when wrapper focused)
     wrap.setAttribute("tabindex", "0");
@@ -434,7 +437,7 @@ function initMap() {
     .addTo(map)
     .bindPopup(
       `<strong style="font-family:sans-serif;font-size:13px;color:${BRAND_COLORS.black}">
-        RDG Peinture — Di Giacomo Romuald
+        Di Giacomo Romuald
       </strong><br/>
       <span style="font-size:12px;color:${BRAND_COLORS.gray}">
         374 Rue du Dr Alphonse Bonnard, 07300 Tournon-sur-Rhône

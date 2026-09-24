@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════════════════════════════════
-   css/realisations.css — Card-Free Visual Photo Gallery for RDG Peinture
+   css/realisations.css — Card-Free Visual Photo Gallery for Di Giacomo Romuald
    Imports base style.css and implements a clean, grid-based image portfolio.
    ═══════════════════════════════════════════════════════════════════════════ */
 
@@ -9,7 +9,7 @@
 .realisations-hero {
   background:
     linear-gradient(rgba(11,31,58,0.55), rgba(11,31,58,0.55)),
-    url("../assets/gallery_6.jpg") center/cover no-repeat;
+    url("../assets/hero5.jpg") center/cover no-repeat;
   padding: calc(var(--space-3xl) + 60px) 0 var(--space-3xl);
   position: relative;
   overflow: hidden;

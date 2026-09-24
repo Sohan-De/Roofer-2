@@ -1,6 +1,6 @@
-﻿// js/colors.js
+// js/colors.js
 // ─────────────────────────────────────────────────────────────────────────────
-// SINGLE SOURCE OF TRUTH for RDG Peinture brand palette.
+// SINGLE SOURCE OF TRUTH for Di Giacomo Romuald brand palette.
 // • Injected at runtime as CSS custom properties (consumed by style.css)
 // • Exported as a JS object (consumed by main.js and any future scripts)
 // ─────────────────────────────────────────────────────────────────────────────
