@@ -953,14 +953,14 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   margin-top: var(--space-sm);
 }
 
-/* 10 services: 2 rows of 5 on desktop */
+/* 8 services: 2 rows of 4 on desktop */
 .services-grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: var(--space-md);
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1024px) {
   .services-grid { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 480px) {
@@ -1012,6 +1012,28 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .service-card:hover .service-icon {
   background: var(--color-red);
   color: var(--color-white);
+}
+
+/* Photo on top of the card, full-bleed; icon overlaps its bottom edge */
+.service-media {
+  margin: calc(-1 * var(--space-lg)) calc(-1 * var(--space-lg)) 0;
+  aspect-ratio: 3 / 2;
+  overflow: hidden;
+  background: var(--color-offwhite);
+}
+.service-media img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform var(--dur-slow, 0.6s) var(--ease);
+}
+.service-card:hover .service-media img { transform: scale(1.06); }
+.service-media + .service-icon {
+  position: relative;
+  z-index: 1;
+  margin-top: calc(-26px - var(--space-sm));
+  margin-left: 2px;
+  background: var(--color-white);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
 }
 
 .service-name {
@@ -1425,6 +1447,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   padding: var(--space-2xl);
   box-shadow: 0 16px 60px rgba(0,0,0,0.08);
 }
+.contact-form h1,
 .contact-form h2 {
   font-family: var(--font-display);
   font-size: 1.6rem;

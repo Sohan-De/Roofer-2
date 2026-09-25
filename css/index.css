@@ -5,7 +5,3 @@
 
 @import "style.css";
 
-/* Hide the before/after gallery section */
-#avant-apres {
-  display: none;
-}

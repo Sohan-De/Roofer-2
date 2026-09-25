@@ -7,8 +7,14 @@
 
 /* ── Contact Details and Form Section ───────────────────────────────────── */
 .contact-page-content {
-  padding: calc(var(--header-h) + var(--space-3xl)) 0 var(--space-3xl);
+  padding: calc(var(--header-h) + var(--space-lg)) 0 var(--space-lg);
   background: var(--color-offwhite);
+}
+
+@media (min-width: 901px) {
+  .contact-page-content {
+    padding: calc(var(--header-h) + var(--space-2xl)) 0 var(--space-2xl);
+  }
 }
 
 /* Custom Hours styling */

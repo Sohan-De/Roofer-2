@@ -125,6 +125,21 @@
   background: var(--color-red);
 }
 
+/* Banner photo at top of each detail card (full-bleed) */
+.service-detail-media {
+  margin: calc(-1 * var(--space-2xl)) calc(-1 * var(--space-2xl)) var(--space-xl);
+  aspect-ratio: 12 / 5;
+  overflow: hidden;
+  background: var(--color-offwhite);
+}
+.service-detail-media img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s var(--ease);
+}
+.service-detail-card:hover .service-detail-media img { transform: scale(1.04); }
+.service-detail-card::before { z-index: 1; }
+
 .service-card-header {
   display: flex;
   align-items: flex-start;
@@ -226,6 +241,10 @@
 @media (max-width: 560px) {
   .service-detail-card {
     padding: var(--space-lg);
+  }
+  .service-detail-media {
+    margin: calc(-1 * var(--space-lg)) calc(-1 * var(--space-lg)) var(--space-lg);
+    aspect-ratio: 16 / 9;
   }
   .service-card-header {
     margin-bottom: var(--space-md);
