@@ -77,7 +77,24 @@
   background: var(--color-red);
   border-color: var(--color-red);
   color: var(--color-white);
-  box-shadow: 0 4px 16px rgba(204, 31, 37, 0.3);
+  box-shadow: 0 4px 16px rgba(217, 24, 43, 0.3);
+}
+
+@media (max-width: 768px) {
+  .filter-bar {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-sm);
+    margin-bottom: var(--space-lg);
+  }
+  .filter-btn {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+  .gallery-section {
+    padding: var(--space-xl) 0;
+  }
 }
 
 /* ── Pure Visual Grid Layout ────────────────────────────────────────────── */

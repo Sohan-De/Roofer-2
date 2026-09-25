@@ -157,13 +157,13 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 
 .btn-primary {
-  background: var(--color-red);
+  background: var(--color-blue);
   color: var(--color-white);
-  box-shadow: 0 4px 20px rgba(217, 24, 43, 0.35);
+  box-shadow: 0 4px 20px rgba(30, 91, 216, 0.35);
 }
 .btn-primary:hover, .btn-primary:focus-visible {
-  background: var(--color-red-dark);
-  box-shadow: 0 6px 28px rgba(217, 24, 43, 0.5);
+  background: var(--color-blue-dark);
+  box-shadow: 0 6px 28px rgba(30, 91, 216, 0.5);
   transform: translateY(-2px);
 }
 
@@ -191,15 +191,26 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 
 .btn-outline-red {
   background: transparent;
-  color: var(--color-red);
-  border: 2px solid var(--color-red);
+  color: var(--color-blue);
+  border: 2px solid var(--color-blue);
 }
 .btn-outline-red:hover {
-  background: var(--color-red);
+  background: var(--color-blue);
   color: var(--color-white);
 }
 
 .btn-sm { padding: 0.6rem 1.2rem; font-size: 0.88rem; }
+
+/* Navbar "Devis Gratuit" button — red accent (overrides blue .btn-primary) */
+#header-devis-btn {
+  background: var(--color-red);
+  box-shadow: 0 4px 20px rgba(217, 24, 43, 0.35);
+}
+#header-devis-btn:hover,
+#header-devis-btn:focus-visible {
+  background: var(--color-red-dark);
+  box-shadow: 0 6px 28px rgba(217, 24, 43, 0.5);
+}
 
 /* ── 5. Section Shapes (Roof-Slope Dividers) ─────────────────────────────── */
 /* Angled clip-path transitions between sections */
@@ -461,7 +472,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 
 .nav-dropdown a:hover {
   color: var(--color-white);
-  background: rgba(204,31,37,0.12);
+  background: rgba(217,24,43,0.12);
   padding-left: 1.2rem;
 }
 
@@ -489,7 +500,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 
 .nav-dropdown-footer a:hover {
-  background: rgba(204,31,37,0.15) !important;
+  background: rgba(217,24,43,0.15) !important;
   color: var(--color-red) !important;
   padding-left: 1rem !important;
 }
@@ -575,7 +586,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   border-bottom: 1px solid rgba(255,255,255,0.06);
   transition: background var(--dur-fast), color var(--dur-fast);
 }
-.mobile-nav a:hover { background: rgba(204,31,37,0.15); color: var(--color-red); }
+.mobile-nav a:hover { background: rgba(217,24,43,0.15); color: var(--color-red); }
 .mobile-nav .btn-primary { margin: var(--space-md) var(--space-lg); }
 
 /* Mobile zone dropdown toggle */
@@ -596,7 +607,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   transition: background var(--dur-fast), color var(--dur-fast);
 }
 .mobile-zone-toggle:hover {
-  background: rgba(204,31,37,0.15);
+  background: rgba(217,24,43,0.15);
   color: var(--color-red);
 }
 .mobile-zone-chevron {
@@ -638,7 +649,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   transition: background var(--dur-fast), color var(--dur-fast);
 }
 .mobile-nav-sub-item:hover {
-  background: rgba(204,31,37,0.12) !important;
+  background: rgba(217,24,43,0.12) !important;
   color: var(--color-red) !important;
 }
 
@@ -791,14 +802,14 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 .hero-badge svg { color: var(--color-red); flex-shrink: 0; }
 .hero-badge.hero-badge-experience {
-  border-color: rgba(30, 91, 216, 0.4);
+  border-color: rgba(217, 24, 43, 0.4);
 }
 .hero-badge.hero-badge-experience svg {
-  color: var(--color-blue);
+  color: var(--color-red);
 }
 .hero-badge.hero-badge-experience:hover {
-  background: rgba(30, 91, 216, 0.25);
-  border-color: var(--color-blue);
+  background: rgba(217, 24, 43, 0.25);
+  border-color: var(--color-red);
 }
 .hero-badge span {
   font-size: 0.8rem;
@@ -983,13 +994,13 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .service-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 12px 40px rgba(0,0,0,0.1);
-  border-color: rgba(204,31,37,0.2);
+  border-color: rgba(217,24,43,0.2);
 }
 .service-card:hover::before { transform: scaleX(1); }
 
 .service-icon {
   width: 52px; height: 52px;
-  background: rgba(204,31,37,0.08);
+  background: rgba(217,24,43,0.08);
   border-radius: var(--radius-sm);
   display: flex;
   align-items: center;
@@ -1108,7 +1119,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   cursor: col-resize;
   transition: background var(--dur-fast), transform var(--dur-fast);
 }
-.ba-handle:hover { background: var(--color-blue); }
+.ba-handle:hover { background: var(--color-red); }
 .ba-handle svg { color: var(--color-black); }
 .ba-handle:hover svg { color: var(--color-white); }
 
@@ -1133,11 +1144,11 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 .ba-label-apres {
   right: var(--space-sm);
-  background: var(--color-blue);
+  background: var(--color-red);
   color: var(--color-white);
   border: 1px solid rgba(255,255,255,0.25);
   clip-path: polygon(5% 0, 100% 0, 100% 100%, 0 100%);
-  box-shadow: 0 2px 10px rgba(30, 91, 216, 0.4);
+  box-shadow: 0 2px 10px rgba(217, 24, 43, 0.4);
 }
 
 .ba-caption {
@@ -1186,13 +1197,13 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   transition: box-shadow var(--dur-med), border-color var(--dur-med), transform var(--dur-med);
 }
 .trust-card:hover {
-  box-shadow: 0 12px 48px rgba(204,31,37,0.1);
-  border-color: rgba(204,31,37,0.25);
+  box-shadow: 0 12px 48px rgba(217,24,43,0.1);
+  border-color: rgba(217,24,43,0.25);
   transform: translateY(-3px);
 }
 .trust-icon {
   width: 64px; height: 64px;
-  background: rgba(204,31,37,0.08);
+  background: rgba(217,24,43,0.08);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -1466,12 +1477,12 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .form-field select:focus {
   border-color: var(--color-red);
   background: var(--color-white);
-  box-shadow: 0 0 0 3px rgba(204,31,37,0.12);
+  box-shadow: 0 0 0 3px rgba(217,24,43,0.12);
 }
 .form-field input.error,
 .form-field textarea.error {
   border-color: var(--color-red);
-  background: rgba(204,31,37,0.04);
+  background: rgba(217,24,43,0.04);
 }
 .form-field textarea { resize: vertical; min-height: 120px; }
 .field-error {
@@ -1511,9 +1522,9 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 .form-message.error {
   display: block;
-  background: rgba(204,31,37,0.08);
+  background: rgba(217,24,43,0.08);
   color: var(--color-red);
-  border: 1px solid rgba(204,31,37,0.2);
+  border: 1px solid rgba(217,24,43,0.2);
 }
 
 /* Contact info card */
@@ -1549,7 +1560,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .contact-item:last-child { margin-bottom: 0; }
 .contact-item-icon {
   width: 36px; height: 36px;
-  background: rgba(204,31,37,0.08);
+  background: rgba(217,24,43,0.08);
   border-radius: var(--radius-sm);
   display: flex;
   align-items: center;
@@ -1580,8 +1591,8 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 
 /* Marché note */
 .marche-note {
-  background: rgba(204,31,37,0.06);
-  border: 1px solid rgba(204,31,37,0.15);
+  background: rgba(217,24,43,0.06);
+  border: 1px solid rgba(217,24,43,0.15);
   border-radius: var(--radius-sm);
   padding: var(--space-md);
   display: flex;
@@ -1606,7 +1617,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   position: absolute;
   top: 0; left: 0; right: 0;
   height: 4px;
-  background: linear-gradient(90deg, var(--color-red-dark), var(--color-red), var(--color-blue));
+  background: linear-gradient(90deg, var(--color-red-dark), var(--color-red), var(--color-red-light));
 }
 
 .footer-inner {
@@ -1750,9 +1761,9 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   to   { opacity: 1; transform: none; }
 }
 @keyframes pulse-ring {
-  0%   { box-shadow: 0 0 0 0 rgba(204,31,37,0.4); }
-  70%  { box-shadow: 0 0 0 16px rgba(204,31,37,0); }
-  100% { box-shadow: 0 0 0 0 rgba(204,31,37,0); }
+  0%   { box-shadow: 0 0 0 0 rgba(217,24,43,0.4); }
+  70%  { box-shadow: 0 0 0 16px rgba(217,24,43,0); }
+  100% { box-shadow: 0 0 0 0 rgba(217,24,43,0); }
 }
 
 /* ══════════════════════════════════════════════════════════════════════════
