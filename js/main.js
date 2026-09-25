@@ -159,6 +159,13 @@ function initSmoothScroll() {
     if (!anchor) return;
     // Mobile nav links: skip smooth scroll, let browser handle naturally
     if (anchor.closest(".mobile-nav")) return;
+    // Bare "#" (e.g. home logo) is not a valid selector — scroll to top instead
+    if (anchor.getAttribute("href") === "#") {
+      if (e.defaultPrevented) return;
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      return;
+    }
     const target = qs(anchor.getAttribute("href"));
     if (!target) return;
     e.preventDefault();
@@ -371,6 +378,10 @@ function initForm() {
       telephone: getValue("telephone"),
       email: getValue("email"),
       ville: getValue("ville"),
+      prestation: (() => {
+        const sel = qs("[name='prestation']", form);
+        return sel ? sel.options[sel.selectedIndex].text : "";
+      })(),
       message: getValue("message"),
       source_page: window.location.href,
       to_email: adminEmail, // Passed to EmailJS template variable {{to_email}}
@@ -384,7 +395,7 @@ function initForm() {
       form.reset();
     } catch (err) {
       console.error("EmailJS error:", err);
-      msgEl.textContent = "Une erreur est survenue. Veuillez r\u00e9essayer ou appeler le 06\u00a028\u00a062\u00a050\u00a006.";
+      msgEl.textContent = "Une erreur est survenue. Veuillez r\u00e9essayer ou appeler le 07\u00a081\u00a044\u00a036\u00a068.";
       msgEl.classList.add("error");
     } finally {
       btn.disabled = false;
@@ -410,9 +421,10 @@ function initMap() {
     attributionControl: true,
   });
 
-  // Dark-tinted tile layer
-  L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png", {
-    attribution: '&copy; <a href="https://carto.com/" target="_blank">CARTO</a>',
+  // OpenStreetMap tiles (free, no API key; attribution required).
+  // Softened via CSS (#leaflet-map .leaflet-tile-pane) to match the brand look.
+  L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a>',
     maxZoom: 18,
   }).addTo(map);
 
@@ -466,7 +478,6 @@ function initMap() {
     { name: "Guilherand-Granges", lat: 44.9303, lon: 4.8681 },
     { name: "Saint-Péray", lat: 44.9503, lon: 4.8436 },
     { name: "Cornas", lat: 44.9786, lon: 4.8353 },
-    { name: "Romans-sur-Isère", lat: 45.0468, lon: 5.0542 },
   ];
 
   const smallIcon = L.divIcon({

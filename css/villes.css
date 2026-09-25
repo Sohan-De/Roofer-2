@@ -280,7 +280,7 @@
 
 .sector-services-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: var(--space-md);
 }
 .sector-service-card {
@@ -331,6 +331,15 @@
   line-height: 1.6;
   margin: 0;
 }
+.sector-services-more {
+  text-align: center;
+  margin-top: var(--space-lg);
+}
+.sector-services-more a {
+  font-weight: 600;
+  color: var(--color-red);
+}
+.sector-services-more a:hover { color: var(--color-red-dark); }
 
 
 /* ══════════════════════════════════════════════════════════════════════════
@@ -810,6 +819,31 @@
   .sector-trust-inner    { justify-content: flex-start; gap: var(--space-xl); }
 }
 @media (max-width: 560px) {
+  /* Hero CTAs: equal full-width buttons */
+  .sector-hero-ctas      { flex-direction: column; align-items: stretch; }
+  .sector-hero-ctas .btn { width: 100%; justify-content: center; }
+
+  /* Hero stats (rating / devis / expérience): 3 equal centred tiles */
+  .sector-hero-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    padding: var(--space-sm) 0;
+    border: 1px solid rgba(255,255,255,.14);
+    border-radius: var(--radius-md);
+    background: rgba(255,255,255,.06);
+    backdrop-filter: blur(6px);
+  }
+  .sector-stat-item {
+    align-items: center;
+    text-align: center;
+    padding: 0 6px;
+  }
+  .sector-stat-item + .sector-stat-item { border-left: 1px solid rgba(255,255,255,.14); }
+  .sector-stat-num       { font-size: 1.7rem; }
+  .sector-stat-num em    { font-size: 0.95rem; }
+  .sector-stat-label     { font-size: 0.62rem; letter-spacing: 0.06em; white-space: nowrap; }
+
   .sector-services-grid  { grid-template-columns: 1fr; }
   .sector-gallery-grid   { grid-template-columns: 1fr; }
   .sector-services-mini  { grid-template-columns: 1fr; }
